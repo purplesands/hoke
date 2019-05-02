@@ -1,0 +1,80 @@
+body {
+	width: 100vw;
+	height: 90vh;
+	color: #fff;
+	background: linear-gradient(30deg, #F9A8A8, #FEEDED, #DAE4F4, #92BAFE);
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+}
+
+div.head{
+  font-size:30px;
+  animation: letters 20s ease infinite;
+  transform:skew(0deg, 0deg);
+}
+
+div.head2{
+  color:black;
+  margin-top:90px;
+  margin-left:900px;
+}
+
+div.head3{
+  color:black;
+  margin-top:200px;
+  margin-left:300px;
+}
+
+
+div.textInput{
+  position:fixed;
+  width:50%;
+  align:center;
+  margin-left:30%;
+}
+
+input#song{
+  font-size: 400%;
+  width:400px;
+  height:100px;
+  background-color: transparent;
+  animation: old 5s ease infinite;
+  transform:skew(20deg, 14deg);
+}
+
+@keyframes old {
+  0% {color: indigo;}
+  25% {color: palevioletred;}
+  50% {color: rosybrown;}
+  75%  {color: pink;}
+  100%{color: indigo;}
+}
+
+@keyframes letters {
+  0% {letter-spacing: 5px;
+      transform:skew(-20deg, -30deg)
+    }
+  25% {letter-spacing: 15px;}
+  50% {letter-spacing: 25px;
+      transform:skew(-10deg, 10deg);
+    }
+  75%  {letter-spacing: 15px;
+        transform:skew(10deg, 5deg)
+      }
+  100% {letter-spacing: 5px;
+        transform:skew(-20deg, -30deg)
+      }
+}
+
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}

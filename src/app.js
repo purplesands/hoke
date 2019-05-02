@@ -14,19 +14,40 @@ songForm = document.querySelector('#songForm')
         setTimeout(function(){
           console.log(song[k])
             soundCheck(song[k]);
-        }, 1000 * (k + 1));
+        }, 750 * (k + 1));
     }
 
 }
 )
 
 function soundCheck(ltr){
+
+  let i = 0
   switch (ltr) {
     case "a":
+    aS = new Audio("assets/1.wav", i)
+    i++
     aS.play()
     break;
     case "b":
+    bS = new Audio("assets/2.wav", i)
+    i++
     bS.play()
+    break;
+    case "c":
+    cS = new Audio("assets/3.wav", i)
+    i++
+    cS.play()
+    break;
+    case "d":
+    dS = new Audio("assets/4.wav", i)
+    i++
+    dS.play()
+    break;
+    case "e":
+    eS = new Audio("assets/5.wav", i)
+    i++
+    eS.play()
     break;
   }
 }
@@ -36,27 +57,32 @@ renderSounds()
 
 })
 
-function Sound(src) {
-  this.sound = document.createElement("audio")
-  this.sound.src = src
-  this.sound.setAttribute("preload", "auto")
-  this.sound.setAttribute("controls", "none")
-  this.sound.style.display = "none"
-  document.body.appendChild(this.sound)
+function Channel(audio_uri) {
+	this.audio_uri = audio_uri;
+	this.resource = new Audio(audio_uri);
 }
 
-
-
-Sound.prototype.play = function(){
-  this.sound.play();
+Channel.prototype.play = function() {
+	// Try refreshing the resource altogether
+	this.resource.play();
 }
 
-Sound.prototype.stop = function(){
-  this.sound.pause();
+function Switcher(audio_uri, num) {
+	this.channels = [];
+	this.num = num;
+	this.index = 0;
+
+	for (var i = 0; i < num; i++) {
+		this.channels.push(new Channel(audio_uri));
+	}
 }
+
+Switcher.prototype.play = function() {
+	this.channels[this.index++].play();
+	this.index = this.index < this.num ? this.index : 0;
+}
+
 
 function renderSounds() {
-  aS = new Sound("assets/syn.wav")
-  bS = new Sound("assets/tamb.wav")
-
+  aS = new Audio("assets/1.wav", 20)
 }
