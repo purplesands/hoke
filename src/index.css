@@ -6,14 +6,75 @@ body {
 	background-size: 400% 400%;
 	animation: Gradient 15s ease infinite;
 }
-
-div.head{
-  font-size:30px;
-  animation: letters 20s ease infinite;
-  transform:skew(0deg, 0deg);
+@keyframes old {
+  0% {color: #F9A8A8;}
+  25% {color: #92BAFE;}
+  50% {color: #DAE4F4;}
+  75%  {color: #FEEDED;}
+  100%{color: #F9A8A8;}
 }
 
-div.head2{
+@keyframes old-space {
+  0% {color: #F9A8A8;}
+  25% {color: #92BAFE;}
+  50% {color: #DAE4F4;}
+  75%  {color: #FEEDED;}
+  100%{color: #F9A8A8;}
+}
+
+
+
+div.textInput{
+  position:static;
+  width:50%;
+  align:center;
+  margin-left:30%;
+	padding-top: 30px;
+
+}
+
+input{
+	z-index:100;
+}
+
+input#song{
+  position:static;
+  font-size: 400%;
+  width:400px;
+  height:100px;
+  background-color: transparent;
+  animation: old 5s ease infinite;
+	transform:skew(10deg, 3deg);
+	border:none;
+
+}
+
+input#song:focus{
+	outline:none
+}
+
+
+div.head{
+	display:flex;
+	flex-wrap:wrap;
+	width:100%;
+  position:fixed;
+  font-size:30px;
+  /* animation: letters 5s ease infinite; */
+  animation:old-space 20s ease infinite;
+  transform:skew(0deg, 0deg);
+	line-height: 20px;
+	letter-spacing: 40px;
+	cursor:pointer;
+	z-index:-1;
+}
+
+@keyframes lineHeight {
+  0% {letter-spacing: : 0px;}
+  50% {letter-spacing: 40px;}
+  100%{letter-spacing: 0px;}
+}
+/* div.head2{
   color:black;
   margin-top:90px;
   margin-left:900px;
@@ -21,34 +82,12 @@ div.head2{
 
 div.head3{
   color:black;
-  margin-top:200px;
+  margin-top:90px;
   margin-left:300px;
-}
+} */
 
 
-div.textInput{
-  position:fixed;
-  width:50%;
-  align:center;
-  margin-left:30%;
-}
 
-input#song{
-  font-size: 400%;
-  width:400px;
-  height:100px;
-  background-color: transparent;
-  animation: old 5s ease infinite;
-  transform:skew(20deg, 14deg);
-}
-
-@keyframes old {
-  0% {color: indigo;}
-  25% {color: palevioletred;}
-  50% {color: rosybrown;}
-  75%  {color: pink;}
-  100%{color: indigo;}
-}
 
 @keyframes letters {
   0% {letter-spacing: 5px;
