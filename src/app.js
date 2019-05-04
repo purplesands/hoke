@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', e=> {
-  function noise(letter){
-    synSound.play()
-  }
+
+const jam = document.querySelector('.jam')
+const body = document.querySelector('body')
+const noteContainer = document.querySelector('.noteContainer')
+
 
 songForm = document.querySelector('#songForm')
   songForm.addEventListener('submit', e => {
@@ -13,16 +15,46 @@ songForm = document.querySelector('#songForm')
         let k = i;
         setTimeout(function(){
           console.log(song[k])
-            soundCheck(song[k]);
-        }, 3000 * (k + 1));
+        }, 2500 * (k + 1));
     }
   }
 )
 
+songForm2 = document.querySelector('#songForm2')
+  songForm2.addEventListener('submit', e => {
+    e.preventDefault()
+    let song = e.target.song.value.toLowerCase().split("")
+    for(var i = 0;i < song.length; i++){
+        let k = i;
+        setTimeout(function(){
+            soundCheck(song[k]);
+        }, 500 * (k + 1));
+    }
+  }
+)
+
+jam.addEventListener("click", e=>{
+  if (!jam.classList.contains("playing")) {
+    body.addEventListener("keypress",
+      soundCheck)
+      jam.innerText = "stop"
+      jam.classList.add("playing")
+  } else if (jam.classList.contains("playing")) {
+    jam.classList.remove("playing")
+    jam.innerText = "jam"
+    noteContainer.innerHTML = ""
+    body.removeEventListener("keypress", soundCheck)
+  }
+})
+
+
 
 function soundCheck(ltr){
-  let i = 0
+  (typeof ltr === 'string' || ltr instanceof String) ? ltr : ltr = ltr.key
+  noteContainer.innerHTML += ltr
 
+  console.log(ltr)
+  let i = 0
   i++
   switch (ltr) {
     case "a":
@@ -101,19 +133,6 @@ function soundCheck(ltr){
     sS  = new Audio("assets/19.wav", i)
     sS.play()
     break;
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
 }
 
@@ -128,7 +147,6 @@ function Channel(audio_uri) {
 }
 
 Channel.prototype.play = function() {
-	// Try refreshing the resource altogether
 	this.resource.play();
 }
 
