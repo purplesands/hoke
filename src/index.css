@@ -5,6 +5,10 @@ body {
 	background: linear-gradient(30deg, #F9A8A8, #FEEDED, #DAE4F4, #92BAFE);
 	background-size: 400% 400%;
 	animation: Gradient 15s ease infinite;
+	cursor:default;
+	font-family: 'Archivo', sans-serif;
+	font-weight:7em;
+
 }
 @keyframes old {
   0% {color: #F9A8A8;}
@@ -28,7 +32,7 @@ div.textInput{
   position:static;
   width:50%;
   align:center;
-  margin-left:30%;
+	margin:auto;
 	padding-top: 30px;
 
 }
@@ -38,21 +42,127 @@ input{
 }
 
 input#song{
+	display:inline-block;
   position:static;
   font-size: 400%;
-  width:400px;
-  height:100px;
-  background-color: rgba(253, 221, 216, 0.5);
+  width:100%;
+  height:60%;
+  background-color: rgba(253, 221, 216, 0.25);
 	border-radius: 10px;
   animation: old 5s ease infinite;
 	transform:skew(10deg, 3deg);
 	border:none;
+	text-align:justify;
+	/* display:flex;
+	flex-wrap:wrap; */
+	overflow:visible;
+	animation: selected 5s ease-in-out infinite , old 5s ease-in-out infinite, selected-spacing 20s ease-in-out infinite;
+	text-shadow:0px 4px red;
+	margin-top:10px;
+}
+
+input#song.song2{
+	animation: selected2 12s ease-in-out infinite , old 10s ease-in-out infinite, selected-spacing2 30s ease-in-out infinite;
+
+}
+input#song.song3{
+	animation: selected 8s ease-in-out infinite , old 7s ease-in-out infinite, selected-spacing2 35s ease-in-out infinite;
 
 }
 
 input#song:focus{
-	outline:none
+	outline:none;
+	background-color:transparent;
 }
+
+
+@keyframes selected {
+	0% {transform:skew(10deg, 3deg);}
+	50% {transform:skew(12deg, 2deg);}
+	100%{transform:skew(10deg, 3deg);}
+}
+
+@keyframes selected2 {
+	0% {transform:skew(10deg, 3deg);}
+	50% {transform:skew(13deg, 0deg);}
+	100%{transform:skew(10deg, 3deg);}
+}
+
+
+@keyframes selected-spacing {
+	0% {letter-spacing:0px;}
+	50% {letter-spacing:10px;}
+	100% {letter-spacing:0px;}
+}
+
+@keyframes selected-spacing2 {
+	0% {letter-spacing:0px;}
+	50% {letter-spacing:20px;}
+	100% {letter-spacing:0px;}
+}
+
+
+div.noteContainer{
+	position:static;
+	font-size: 40px;
+	text-shadow: 0px 3px #DAE4F4, 2px 0px gainsboro;
+	color:#F9A8A8;
+	text-align:center;
+	max-width: 750px;
+	max-height:500px;
+  margin: auto;
+	/* padding-left:75px; */
+	display: flex;
+	flex-wrap:wrap;
+	letter-spacing: 9px;
+	background-size: 20px 20px;
+	user-select: none;
+}
+
+
+.noteBtn{
+	position:relative;
+	color:black;
+	width:50px;
+	z-index:100;
+}
+
+div.ltr{
+	transform:skew(-10deg, -3deg)
+
+}
+
+
+div.ltr:nth-child(10n+0){
+transform: rotate(-29deg);
+color:#F9A8A0;
+text-shadow: 3px 0px crimson, 2px 0px gainsboro;
+}
+
+div.ltr:nth-child(4n+0){
+transform: rotate(9deg);
+text-shadow: 10px 0px #FE4646, 2px 0px gainsboro;
+}
+div.ltr:nth-child(22n+0){
+	transform: rotate(45deg);
+	text-shadow: 1px 8px cornsilk, 2px 0px gainsboro;
+	/* font-size:51px; */
+}
+
+div.ltr:hover{
+color:white;
+transform:rotate(10deg);
+font-size:105%;
+}
+
+div.ltr:active{
+	font-size:90%;
+}
+
+
+
+@keyframes spin { 100% { transform:rotate(359deg); } }
+
 
 div.trying{
 	width:400px;
@@ -81,17 +191,6 @@ div.head{
   50% {letter-spacing: 40px;}
   100%{letter-spacing: 0px;}
 }
-/* div.head2{
-  color:black;
-  margin-top:90px;
-  margin-left:900px;
-}
-
-div.head3{
-  color:black;
-  margin-top:90px;
-  margin-left:300px;
-} */
 
 
 
@@ -123,4 +222,39 @@ div.head3{
 	100% {
 		background-position: 0% 50%
 	}
+}
+
+button, .noteBtn {
+  display: inline-block;
+  padding: 5px;
+  font-size: 1em;
+  color: white;
+  background-color: #F9A8A8;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 7px seashell;
+	outline:none;
+	transform:skewX(-10deg)
+
+}
+
+button:hover, .noteBtn:hover {
+  background-color: seashell;
+  animation: old 4s infinite;
+}
+
+button:active, .noteBtn:active {
+  background-color: mistyrose;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+button.jam{
+	font-family:"archivo", sans-serif;
+	font-weight:bold;
+	margin-top:2em;
+	margin-left:3em;
+	align:right;
+	margin-bottom:30px;
 }

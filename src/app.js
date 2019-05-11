@@ -9,12 +9,10 @@ songForm = document.querySelector('#songForm')
   songForm.addEventListener('submit', e => {
     e.preventDefault()
     let song = e.target.song.value.toLowerCase().split("")
-    console.log(song)
-
     for(var i = 0;i < song.length; i++){
         let k = i;
         setTimeout(function(){
-          console.log(song[k])
+            soundCheck(song[k]);
         }, 2500 * (k + 1));
     }
   }
@@ -28,10 +26,24 @@ songForm2 = document.querySelector('#songForm2')
         let k = i;
         setTimeout(function(){
             soundCheck(song[k]);
+        }, 1250 * (k + 1));
+    }
+  }
+)
+
+songForm3 = document.querySelector('#songForm3')
+  songForm3.addEventListener('submit', e => {
+    e.preventDefault()
+    let song = e.target.song.value.toLowerCase().split("")
+    for(var i = 0;i < song.length; i++){
+        let k = i;
+        setTimeout(function(){
+            soundCheck(song[k]);
         }, 500 * (k + 1));
     }
   }
 )
+
 
 jam.addEventListener("click", e=>{
   if (!jam.classList.contains("playing")) {
@@ -47,12 +59,17 @@ jam.addEventListener("click", e=>{
   }
 })
 
+document.querySelector('.noteContainer').addEventListener('click',e=>{
+  e.preventDefault()
+  soundCheck(e.target.innerText)
+})
+
 
 
 function soundCheck(ltr){
-  (typeof ltr === 'string' || ltr instanceof String) ? ltr : ltr = ltr.key
-  noteContainer.innerHTML += ltr
-
+  if (typeof ltr === 'string' || ltr instanceof String) {ltr} else {ltr=ltr.key}
+  if (ltr===" ") { ltr='&nbsp;'} else {ltr}
+  noteContainer.innerHTML += `<div class="ltr">${ltr}</div>`
   console.log(ltr)
   let i = 0
   i++

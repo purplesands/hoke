@@ -6,7 +6,8 @@
   </head>
   <script src="src/app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="src/index.css">
-  <link href="https://fonts.googleapis.com/css?family=Kotta+One|Nova+Mono" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo|IBM+Plex+Serif:400,600i|Inconsolata" rel="stylesheet">
+
 
 
   <body>
@@ -14,29 +15,31 @@
       <!-- <p>tell me</p> -->
     </div>
 <div class="textInput">
-  <div style="color:black">
-  2.5sec
-  </div>
 
 
-<form id="songForm">
+<form id="songForm" class="song">
   <input type="text" id="song"><br/>
-  <input type="submit" value="♪">
+  <input type="submit" value="♪" class="noteBtn">
 </form>
-<div style="color:black">
-.5sec
-</div>
 
-<form id="songForm2">
-  <input type="text" id="song"><br/>
-  <input type="submit" value="♪">
+<form id="songForm2" class="song">
+  <input type="text" class="song2" id="song"><br/>
+  <input type="submit" value="♪" class="noteBtn">
 </form>
+
+<form id="songForm3" class="song">
+  <input type="text" class="song3" id="song"><br/>
+  <input type="submit" value="♪" class="noteBtn">
+</form>
+
 
 <!-- <form id="songForm">
   <input type="text" id="song" value="cool" class="dupe"><br/>
 </form> -->
+<button class="jam">jam</button>
+
 </div>
-  <button class="jam">jam</button>
+
   <div class="noteContainer">
   </div>
 </body>
