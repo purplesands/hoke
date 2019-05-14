@@ -230,9 +230,6 @@ function soundCheck(ltr){
 
 
 
-
-
-
   }
 }
 
