@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', e=> {
 const jam = document.querySelector('.jam')
 const body = document.querySelector('body')
 const noteContainer = document.querySelector('.noteContainer')
+const clearBtn = document.querySelector('.clear')
 
 
 songForm = document.querySelector('#songForm')
@@ -44,7 +45,6 @@ songForm3 = document.querySelector('#songForm3')
   }
 )
 
-
 jam.addEventListener("click", e=>{
   if (!jam.classList.contains("playing")) {
     body.addEventListener("keypress",
@@ -54,9 +54,12 @@ jam.addEventListener("click", e=>{
   } else if (jam.classList.contains("playing")) {
     jam.classList.remove("playing")
     jam.innerText = "jam"
-    noteContainer.innerHTML = ""
     body.removeEventListener("keypress", soundCheck)
   }
+})
+
+clearBtn.addEventListener("click", e=>{
+  noteContainer.innerHTML = ""
 })
 
 document.querySelector('.noteContainer').addEventListener('click',e=>{
@@ -64,12 +67,11 @@ document.querySelector('.noteContainer').addEventListener('click',e=>{
   soundCheck(e.target.innerText)
 })
 
-
-
 function soundCheck(ltr){
   if (typeof ltr === 'string' || ltr instanceof String) {ltr} else {ltr=ltr.key}
   if (ltr===" ") { ltr='&nbsp;'} else {ltr}
   noteContainer.innerHTML += `<div class="ltr">${ltr}</div>`
+  noteContainer.scrollTop = noteContainer.scrollHeight - noteContainer.clientHeight;
   console.log(ltr)
   let i = 0
   i++
@@ -150,9 +152,89 @@ function soundCheck(ltr){
     sS  = new Audio("assets/19.wav", i)
     sS.play()
     break;
+    case "t":
+    tS  = new Audio("assets/20.wav", i)
+    tS.play()
+    break;
+    case "u":
+    uS  = new Audio("assets/21.wav", i)
+    uS.play()
+    break;
+    case "v":
+    vS  = new Audio("assets/22.wav", i)
+    vS.play()
+    break;
+    case "w":
+    wS  = new Audio("assets/23.wav", i)
+    wS.play()
+    break;
+    case "x":
+    xS  = new Audio("assets/24.wav", i)
+    xS.play()
+    break;
+    case "y":
+    yS  = new Audio("assets/25.wav", i)
+    yS.play()
+    break;
+    case "z":
+    zS  = new Audio("assets/26.wav", i)
+    zS.play()
+    break;
+    case "1":
+    oneS  = new Audio("assets/27.wav", i)
+    oneS.play()
+    break;
+    case "2":
+    twoS  = new Audio("assets/28.wav", i)
+    twoS.play()
+    break;
+    case "3":
+    threeS  = new Audio("assets/29.wav", i)
+    threeS.play()
+    break;
+    case "4":
+    fourS  = new Audio("assets/30.wav", i)
+    fourS.play()
+    break;
+    case "5":
+    fiveS  = new Audio("assets/31.wav", i)
+    fiveS.play()
+    break;
+    case "6":
+    sixS  = new Audio("assets/32.wav", i)
+    sixS.play()
+    break;
+    case "7":
+    sevS  = new Audio("assets/33.wav", i)
+    sevS.play()
+    break;
+    case "8":
+    eightS  = new Audio("assets/34.wav", i)
+    eightS.play()
+    break;
+    case "9":
+    nineS  = new Audio("assets/35.wav", i)
+    nineS.play()
+    break;
+    case "0":
+    zeroS  = new Audio("assets/36.wav", i)
+    zeroS.play()
+    break;
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
-
 
 renderSounds()
 
