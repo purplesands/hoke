@@ -71,6 +71,11 @@ input#song:focus{
 	background-color:transparent;
 }
 
+::placeholder{
+	color:white;
+	opacity:0.4;
+}
+
 
 @keyframes selected {
 	0% {transform:skew(10deg, 3deg);}
