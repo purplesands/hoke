@@ -9,7 +9,9 @@ body {
 	font-family: 'Nunito', sans-serif;
 	font-weight:7em;
 	display:flex;
+	margin: 3em;
 }
+
 @keyframes old {
   0% {color: #F9A8A8;}
   25% {color: #92BAFE;}
@@ -188,6 +190,7 @@ div.head{
 	width:100%;
   position:fixed;
   font-size:30px;
+	right: 2em;
   /* animation: letters 5s ease infinite;
   animation:old-space 20s ease infinite; */
   transform:skew(0deg, 0deg);
