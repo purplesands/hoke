@@ -15,7 +15,8 @@ body {
 	opacity:0.5;
 animation:old 20s alternate ease;
 text-shadow:1px 1px peachpuff;
-transition: letter-spacing 2s ease, transform 2s ease
+transition: letter-spacing 2s ease, transform 2s ease;
+margin-top:-3em
 }
 
 @keyframes instructions {
