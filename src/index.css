@@ -11,6 +11,18 @@ body {
 	display:flex;
 	margin: 3em;
 }
+.instructions{
+	opacity:0.5;
+animation:old 20s alternate ease;
+text-shadow:1px 1px peachpuff;
+transition: letter-spacing 2s ease, transform 2s ease
+}
+
+@keyframes instructions {
+	0% {transform:skew(0deg, 0deg);}
+	50% {transform:skew(2deg, 5deg);}
+	100%{transform:skew(0deg, -5deg);}
+}
 
 @keyframes old {
   0% {color: #F9A8A8;}
